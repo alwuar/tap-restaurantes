@@ -1,0 +1,27 @@
+@use 'cabecera';
+@use 'promo';
+@use 'producto';
+
+.promociones {
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    gap: 20px;              /* espacio entre elementos */
+    scroll-behavior: smooth; 
+    padding: 0;             /* nada de padding */
+    box-sizing: border-box;
+}
+.promociones::-webkit-scrollbar {
+    display: none;
+}
+.promociones::before {
+    content: "";
+    flex: 0 0 0px;       /* espacio inicial de 20px */
+}
+.contenedor-productos {
+    padding: 2em 0;
+    span:nth-child(1) {
+        font-size: 17.33px;
+        font-weight: 600;
+    }
+}

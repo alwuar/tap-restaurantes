@@ -1,0 +1,39 @@
+.cabecera-menu {
+    min-height: 300px;
+    .cabecera__seccionuno {
+        position: relative;
+        .fondo-cabecera {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1;
+        }
+        .imagen-cabecera {
+            position: absolute;
+            top: 144px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+        }
+        .titulo-cabecera {
+            text-align: center;
+            position: absolute;
+            top: 220px;
+            left: 50%;
+            transform: translateX(-50%);
+            .titular-empresa {
+                display: flex;
+                flex-direction: column;
+                .titulo-empresa {
+                    font-size: 33.18px;
+                    font-weight: 700;
+                }
+                .ubi-empresa {
+                    font-size: 13.33px;
+                    color: #626262;
+                }
+            }
+        }
+    }
+
+}
