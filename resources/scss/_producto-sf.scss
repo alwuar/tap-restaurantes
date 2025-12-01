@@ -1,0 +1,69 @@
+.producto {
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    grid-template-columns: 1fr minmax(120px); // izquierda flexible, derecha entre 80 y 120px
+    gap: 20px;
+    align-items: center;
+    padding: 10px 0;
+  
+    // permite que el contenido de la columna izquierda se reduzca correctamente
+    .producto__info {
+      display: flex;
+      flex-direction: column;
+      min-width: 0; // 
+      // descripcion (Primer span)
+    span:nth-child(1) {
+        font-size: 16.33px;
+        font-weight: 600;
+      }
+    // descripcion (Segundo span)
+    span:nth-child(2) {
+        font-size: 14.33px;
+        font-weight: 600;
+      }
+      // descripcion (tercer span)
+      span:nth-child(3) {
+        display: -webkit-box;
+        -webkit-line-clamp: 4;     // número de líneas visibles
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+
+        font-size: 11.33;
+        color: gray;
+      }
+    }
+  
+    .producto__img {
+      width: 100%;
+      max-width: 120px;
+      height: 136px;
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  
+      // si metes una <img> dentro:
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+    }
+  }
+  
+  /* breakpoint: en móviles pasa a 1 columna */
+  @media (max-width: 600px) {
+    .producto {
+      grid-template-columns: 1fr minmax(80px, 120px);
+      text-align: left;
+  
+      .producto__img {
+        max-width: 200px;
+        margin: 0 auto;
+      }
+    }
+  }
+  

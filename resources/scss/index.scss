@@ -1,0 +1,41 @@
+.header_index {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    .container {
+        width: 50%;
+    } @media (max-width:900px) {
+        .container {
+            width: 90%;
+        }
+    }
+
+    .btn-index {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+
+        .btn-primary {
+        background-color: #df4205;
+        border: 1px solid #df4205;
+        &:hover {
+        background-color: #220601;
+        border: 1px solid #220601;
+    }
+    }
+    }@media(max-width: 800px) {
+        .btn-index {
+            flex-direction: column;
+            gap: 10px;
+        }
+    }
+   
+}

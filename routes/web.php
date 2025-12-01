@@ -19,3 +19,6 @@ Route::get('/', function () {
 Route::get('/swing-pasta', function () {
     return view('clientes.swing-pasta.menu');
 });
+Route::get('/vous-amour', function () {
+    return view('clientes.vous-amour.menu');
+});

@@ -1,6 +1,8 @@
 @use 'cabecera';
 @use 'promo';
+@use 'navfilter';
 @use 'producto';
+
 
 .promociones {
     display: flex;

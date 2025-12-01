@@ -4,44 +4,45 @@
 <x-layouts.guest title="Swing pasta - menú en linea">
     
     <header>
-        <div class="container-fluid">
-            <x-cabecera>
-                <x-slot name="fondoCabecera">
-                    <img src="{{ asset('img/clientes/swing/banner.png') }}" alt="">
-                </x-slot>
-                <x-slot name="logoEmpresa">
-                    <img src="{{ asset('img/clientes/swing/logo.png') }}" alt="">
-                </x-slot>
-                <x-slot name="tituloEmpresa">
-                    Swing Pasta
-                </x-slot>
-                <x-slot name="ubicacionEmpresa">
-                    Florida, pinos
-                </x-slot>
-            </x-cabecera>
-        </div>
+        <x-cabecera>
+            <x-slot name="fondoCabecera">
+                <img src="{{asset('img/clientes/swing/swing-banner.jpg')}}" class="img-fondo" alt="">
+            </x-slot>
+            <x-slot name="logoEmpresa">
+                <img src="{{ asset('img/clientes/swing/logo.png') }}" alt="">
+            </x-slot>
+            <x-slot name="tituloEmpresa">
+                Swing Pasta
+            </x-slot>
+            <x-slot name="ubicacionEmpresa">
+                Florida, pinos
+            </x-slot>
+        </x-cabecera>
     </header>
 
     <section>
        <div class="promociones container-fluid">
         <x-promo name="bntPromo">
             <x-slot name="btnPromo">
-                <span>SWING DATE</span><span>SPICY EDITION</span>
-            </x-slot>
-        </x-promo>
-        <x-promo name="bntPromo">
-            <x-slot name="btnPromo">
-                <span>SWING DATE</span><span>SPICY EDITION</span>
-            </x-slot>
-        </x-promo>
-        <x-promo name="bntPromo">
-            <x-slot name="btnPromo">
-                <span>SWING DATE</span><span>SPICY EDITION</span>
+                <a>
+                    <span>🔥</span> <span>Swing Date Spicy Edition</span>
+                </a>
             </x-slot>
         </x-promo>
        </div>
     </section>
-
+    <section class="filtro">
+        <x-navfilter>
+            <x-slot name="navFilter">
+                <a href="/" class="active">
+                    + Vendido
+                </a>
+                <a href="/" class="off">
+                    Entradas
+                </a>
+            </x-slot>
+        </x-navfilter>
+    </section>
 
     <section class="contenedor-productos">
         <div class="container">

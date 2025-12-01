@@ -1,12 +1,15 @@
 .cabecera-menu {
     min-height: 300px;
+    overflow-x: hidden;
+    width: 100%;
     .cabecera__seccionuno {
         position: relative;
         .fondo-cabecera {
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 1;
+            .img-fondo {
+                width: 100%;
+                height: 190px;
+                object-fit: cover;
+            }
         }
         .imagen-cabecera {
             position: absolute;
@@ -18,12 +21,14 @@
         .titulo-cabecera {
             text-align: center;
             position: absolute;
+            width: 100%;
             top: 220px;
             left: 50%;
             transform: translateX(-50%);
             .titular-empresa {
                 display: flex;
                 flex-direction: column;
+
                 .titulo-empresa {
                     font-size: 33.18px;
                     font-weight: 700;
