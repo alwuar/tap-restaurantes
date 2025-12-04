@@ -1,21 +1,28 @@
 @push('css')
-    @vite(['resources/scss/app.scss', 'resources/scss/menu-sf.scss', 'resources/js/app.js'])
+    @vite(['resources/scss/app.scss', 'resources/scss/menu-sf.scss','resources/js/app.js'])
 @endpush
-<x-layouts.guest title="Vouse Amour - menú en linea">
-    
+<x-layouts.guest-menu title="Vouse Amour - menú en linea">
+        @push('modal')
+            <x-modal name="promoModal">
+                <x-slot name="promoModal">
+                    <img src="{{asset('img/clientes/vous-amour/vous-promo.webp')}}" class="img-fluid" alt="">
+                </x-slot>
+            </x-modal>
+        @endpush
     <header>
         <x-cabecera>
             <x-slot name="fondoCabecera">
-                <img src="{{asset('img/clientes/swing/swing-banner.jpg')}}" class="img-fondo" alt="">
+                <img src="{{asset('img/clientes/vous-amour/vous-amour-fondo.webp')}}" class="img-fondo" alt="">
             </x-slot>
             <x-slot name="logoEmpresa">
-                <img src="{{ asset('img/clientes/swing/logo.png') }}" alt="">
+                <img src="{{ asset('img/clientes/vous-amour/vous-amour-logo.png') }}" alt="">
             </x-slot>
             <x-slot name="tituloEmpresa">
                 Vous Amour
             </x-slot>
             <x-slot name="ubicacionEmpresa">
-                Plaza Townsquaremx
+                Café, brunch, desayunos y spots con mucho amor <br> y un toque Parisino.
+                
             </x-slot>
         </x-cabecera>
     </header>
@@ -24,72 +31,39 @@
        <div class="promociones container-fluid">
         <x-promo name="bntPromo">
             <x-slot name="btnPromo">
-                <a>
-                    <span>🔥</span> <span>Swing Date Spicy Edition</span>
-                </a>
+                <small>Miércoles 2 x 1 en chilaquiles</small>
             </x-slot>
         </x-promo>
        </div>
     </section>
-    <section class="filtro d-none">
-        <x-navfilter>
-            <x-slot name="navFilter">
-                <a href="/" class="active">
-                    Bowls y toast
-                </a>
-                <a href="/" class="active">
-                    Pancakes & Más
-                </a>
-                <a href="/" class="active">
-                    Ensaladas
-                </a>
-                <a href="/" class="active">
-                    Sandwiches & Baguettes
-                </a>
-                <a href="/" class="active">
-                    Benedictinos
-                </a>
-                <a href="/" class="active">
-                    Huevos & Quiche
-                </a>
-                <a href="/" class="active">
-                    Plat principal et plus
-                </a>
-                <a href="/" class="active">
-                    Postres
-                </a>
-                <a href="/" class="active">
-                    Malteadas
-                </a>
-                <a href="/" class="active">
-                    Amour cocktail
-                </a>
-                <a href="/" class="active">
-                    Panadería
-                </a>
-                <a href="/" class="active">
-                    Bebidas
-                </a>
-                
-            </x-slot>
-        </x-navfilter>
-    </section>
+    
 
     <section class="contenedor-productos">
         <div class="container">
-            <span>Bowls & Toast</span>
-            <x-producto-sf name="producto">
-                <x-slot name="tituloProducto">
-                    Bowl de frutos rojos
-                </x-slot>
-                <x-slot name="precioProducto">
-                    $133
-                </x-slot>
-                <x-slot name="descripcionProducto">
-                    Pudín de avena, chia y leche de coco terminado con una mezcla de frutos rojos frescos y coco tostado.
-                </x-slot>
-            </x-producto>
-            <x-producto-sf name="producto">
+
+            {{-- data target --}}
+           <div class="mb-3">
+                <span class="categoria" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                        Bowls & Toast 
+                        <span><img src="{{asset('img/flecha.svg')}}" width="10" alt="">
+                        </span> 
+                </span>
+            </div>
+            <div class="collapse mb-3" id="collapseExample">
+                <div class="card card-body">
+                   <x-producto-sf name="producto">
+                        <x-slot name="tituloProducto">
+                            Bowl de frutos rojos
+                        </x-slot>
+                        <x-slot name="precioProducto">
+                            $133
+                        </x-slot>
+                        <x-slot name="descripcionProducto">
+                            Pudín de avena, chia y leche de coco terminado con una mezcla de frutos rojos frescos y coco tostado.
+                        </x-slot>
+                    </x-producto-sf>
+                    
+                    <x-producto-sf name="producto">
                 <x-slot name="tituloProducto">
                     Salmonete toast
                 </x-slot>
@@ -99,7 +73,7 @@
                 <x-slot name="descripcionProducto">
                    Pan campesino tostado, aderezo ravigot con pepino, laminas de salmón ahumado y brotes de temporada.
                 </x-slot>
-            </x-producto>
+            </x-producto-sf>
             <x-producto-sf name="producto">
                 <x-slot name="tituloProducto">
                     Avocat & Huevo toast
@@ -110,10 +84,21 @@
                 <x-slot name="descripcionProducto">
                    Nuestro pan campesino tostado, aderezado con puré de aguacate, rabano, sandía, cebolla y brotes de temporada, coronado con un cremoso huevo poche.
                 </x-slot>
-            </x-producto>
-        <hr /> {{-- separador --}}
-            <span><b>Pancakes & Más</b></span>
-            <x-producto-sf name="producto">
+            </x-producto-sf>
+                </div>
+            </div>
+            {{-- end data target --}}
+
+            <div class="mb-3">
+                <span class="categoria" data-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample">
+                        Pancakes & Más
+                        <span><img src="{{asset('img/flecha.svg')}}" width="10" alt="">
+                        </span> 
+                </span>
+            </div>
+            <div class="collapse mb-3" id="collapseExample1">
+                <div class="card card-body">
+                   <x-producto-sf name="producto">
                 <x-slot name="tituloProducto">
                    Fluffy Pancake
                 </x-slot>
@@ -157,10 +142,19 @@
                     Esponjoso brioche al sartén, bañado con nuestra mezcal especial para tostada, terminado con nuestra compota casera de frutos rojos y moras frescas
                 </x-slot>
             </x-producto>
+                </div>
+            </div>
 
-             <hr /> {{-- separador --}}
-            <span><b>Ensaladas</b></span>
-            <x-producto-sf name="producto">
+            <div class="mb-3">
+                <span class="categoria" data-toggle="collapse" href="#collapseExample3" role="button" aria-expanded="false" aria-controls="collapseExample">
+                        Ensaladas
+                        <span><img src="{{asset('img/flecha.svg')}}" width="10" alt="">
+                        </span> 
+                </span>
+            </div>
+            <div class="collapse mb-3" id="collapseExample3">
+                <div class="card card-body">
+                 <x-producto-sf name="producto">
                 <x-slot name="tituloProducto">
                    Salade Au Fromage Brie
                 </x-slot>
@@ -193,10 +187,19 @@
                     Camarones salteados en mantequilla sobre una cama de mezcla de lechugas, cítricos de temporada y una vinagreta tibia de vino blanco y hierbas.
                 </x-slot>
             </x-producto>
-
-             <hr /> {{-- separador --}}
-            <span><b>Sandwiches & baguettes</b></span>
-            <x-producto-sf name="producto">
+                </div>
+            </div>
+            
+            <div class="mb-3">
+                <span class="categoria" data-toggle="collapse" href="#collapseExample4" role="button" aria-expanded="false" aria-controls="collapseExample">
+                        Sandwiches & baguettes
+                        <span><img src="{{asset('img/flecha.svg')}}" width="10" alt="">
+                        </span> 
+                </span>
+            </div>
+            <div class="collapse mb-3" id="collapseExample4">
+                <div class="card card-body">
+                     <x-producto-sf name="producto">
                 <x-slot name="tituloProducto">
                    Croque Madame
                 </x-slot>
@@ -263,494 +266,548 @@
             </x-slot>
         </x-producto>
 
-        <hr>{{-- separador --}}
-        
-        <span><b>Benedictinos</b></span>
-        <x-producto-sf name="producto">
-            <x-slot name="tituloProducto">
-                Benedictinos
-            </x-slot>
-            <x-slot name="precioProducto">
-                $185
-            </x-slot>
-            <x-slot name="descripcionProducto">
-                English Muffin hecho en casa, con huevo poche, lomo canadiense, cremosa salsa holandesa, servido con mezcla de lechugas.
-            </x-slot>
-        </x-producto>
-        <x-producto-sf name="producto">
-            <x-slot name="tituloProducto">
-                Benedictinos Rose
-            </x-slot>
-            <x-slot name="precioProducto">
-                $185
-            </x-slot>
-            <x-slot name="descripcionProducto">
-                English Muffin hecho en casa, con huevo poche, lomo canadiense, bañados en una salsa holandesa de betabel, servido con mezcla de lechugas.
-            </x-slot>
-        </x-producto>
-        <x-producto-sf name="producto">
-            <x-slot name="tituloProducto">
-                Benedictinos Tocino
-            </x-slot>
-            <x-slot name="precioProducto">
-                $175
-            </x-slot>
-            <x-slot name="descripcionProducto">
-                English Muffin hecho en casa, con huevo poche, crujiente tocino, cremosa salsa holandesa, servido con mezcla de lechugas.
-            </x-slot>
-        </x-producto>
+                </div>
+            </div>
+            
+             <div class="mb-3">
+                <span class="categoria" data-toggle="collapse" href="#collapseExample5" role="button" aria-expanded="false" aria-controls="collapseExample">
+                        Benedictinos
+                        <span><img src="{{asset('img/flecha.svg')}}" width="10" alt="">
+                        </span> 
+                </span>
+            </div>
+            <div class="collapse mb-3" id="collapseExample5">
+                <div class="card card-body">
+                    <x-producto-sf name="producto">
+                    <x-slot name="tituloProducto">
+                        Benedictinos
+                    </x-slot>
+                    <x-slot name="precioProducto">
+                        $185
+                    </x-slot>
+                    <x-slot name="descripcionProducto">
+                        English Muffin hecho en casa, con huevo poche, lomo canadiense, cremosa salsa holandesa, servido con mezcla de lechugas.
+                    </x-slot>
+                </x-producto>
+                <x-producto-sf name="producto">
+                    <x-slot name="tituloProducto">
+                        Benedictinos Rose
+                    </x-slot>
+                    <x-slot name="precioProducto">
+                        $185
+                    </x-slot>
+                    <x-slot name="descripcionProducto">
+                        English Muffin hecho en casa, con huevo poche, lomo canadiense, bañados en una salsa holandesa de betabel, servido con mezcla de lechugas.
+                    </x-slot>
+                </x-producto>
+                <x-producto-sf name="producto">
+                    <x-slot name="tituloProducto">
+                        Benedictinos Tocino
+                    </x-slot>
+                    <x-slot name="precioProducto">
+                        $175
+                    </x-slot>
+                    <x-slot name="descripcionProducto">
+                        English Muffin hecho en casa, con huevo poche, crujiente tocino, cremosa salsa holandesa, servido con mezcla de lechugas.
+                    </x-slot>
+                </x-producto>
 
-        <hr>{{-- separador --}}
+                </div>
+            </div>
+           
 
-        <span><b>Huevos y Quiche</b></span>
-        <x-producto-sf name="producto">
-            <x-slot name="tituloProducto">
-                Omelette Amour
-            </x-slot>
-            <x-slot name="precioProducto">
-                $185
-            </x-slot>
-            <x-slot name="descripcionProducto">
-               Esponjoso omelette, relleno de queso de cabra, nuez tostada, tocino, servido con papas confitadas y ensalada de mezcla de lechugas.
-            </x-slot>
-        </x-producto>
-        <x-producto-sf name="producto">
-            <x-slot name="tituloProducto">
-                Quiche Lorraine
-            </x-slot>
-            <x-slot name="precioProducto">
-                $125
-            </x-slot>
-            <x-slot name="descripcionProducto">
-               Nada como un clásico francés, masa de tarta salada, rellena de una mezcla de huevo queso de cabra, jamón ahumado, acompañado de mezcla de lechugas y vinagreta balsámica.
-            </x-slot>
-        </x-producto>
+            {{--  --}}
+            <div class="mb-3">
+                <span class="categoria" data-toggle="collapse" href="#collapseExample6" role="button" aria-expanded="false" aria-controls="collapseExample">
+                        Huevos y Quiche
+                        <span><img src="{{asset('img/flecha.svg')}}" width="10" alt="">
+                        </span> 
+                </span>
+            </div>
+            <div class="collapse mb-3" id="collapseExample6">
+                <div class="card card-body">
+                    <x-producto-sf name="producto">
+                    <x-slot name="tituloProducto">
+                        Omelette Amour
+                    </x-slot>
+                    <x-slot name="precioProducto">
+                        $185
+                    </x-slot>
+                    <x-slot name="descripcionProducto">
+                    Esponjoso omelette, relleno de queso de cabra, nuez tostada, tocino, servido con papas confitadas y ensalada de mezcla de lechugas.
+                    </x-slot>
+                </x-producto>
+                <x-producto-sf name="producto">
+                    <x-slot name="tituloProducto">
+                        Quiche Lorraine
+                    </x-slot>
+                    <x-slot name="precioProducto">
+                        $125
+                    </x-slot>
+                    <x-slot name="descripcionProducto">
+                    Nada como un clásico francés, masa de tarta salada, rellena de una mezcla de huevo queso de cabra, jamón ahumado, acompañado de mezcla de lechugas y vinagreta balsámica.
+                    </x-slot>
+                </x-producto>
 
-        <hr>{{-- separador --}}
-        
-        <span><b>Plat principal et plus</b></span>
+                </div>
+            </div>
+            {{--  --}}
+            <div class="mb-3">
+                <span class="categoria" data-toggle="collapse" href="#collapseExample7" role="button" aria-expanded="false" aria-controls="collapseExample">
+                        Plat principal et plus
+                        <span><img src="{{asset('img/flecha.svg')}}" width="10" alt="">
+                        </span> 
+                </span>
+            </div>
+            <div class="collapse mb-3" id="collapseExample7">
+                <div class="card card-body">
+                    <x-producto-sf name="producto">
+                        <x-slot name="tituloProducto">
+                            Hamburger au bacon
+                        </x-slot>
+                        <x-slot name="precioProducto">
+                            $190
+                        </x-slot>
+                        <x-slot name="descripcionProducto">
+                        Jugosa carne de res montada sobre un pan brioche, mayonesa, mezcla de lechugas, tomate y por supuesto tocino crujiente y cremoso queso de cabra.
+                        </x-slot>
+                    </x-producto>
+                    <x-producto-sf name="producto">
+                        <x-slot name="tituloProducto">
+                            Hamburger vous amour
+                        </x-slot>
+                        <x-slot name="precioProducto">
+                            $233
+                        </x-slot>
+                        <x-slot name="descripcionProducto">
+                        Jugosa carne de la casa, acompañada de arrachera, tomate, lechuga, queso gruyere y cebolla frita.
+                        </x-slot>
+                    </x-producto>
+                    <x-producto-sf name="producto">
+                        <x-slot name="tituloProducto">
+                            Croissant vous amour
+                        </x-slot>
+                        <x-slot name="precioProducto">
+                            $233
+                        </x-slot>
+                        <x-slot name="descripcionProducto">
+                        Un clásico croissant relleno de queso brie, mix de quesos, pechuga ahumada de pavo, lechuga, aderezado con una mermelada de frutos rojos y chipotle.
+                        </x-slot>
+                    </x-producto>
+                    <x-producto-sf name="producto">
+                        <x-slot name="tituloProducto">
+                            Chilaquiles rojos
+                        </x-slot>
+                        <x-slot name="precioProducto">
+                            $205
+                        </x-slot>
+                        <x-slot name="descripcionProducto">
+                        Tortilla de maiz frita, bañada en nuestra salsa roja, acompañados de arrachera, huevo, queso, crema, brotes, cebolla morada.
+                        </x-slot>
+                    </x-producto>
+                    <x-producto-sf name="producto">
+                        <x-slot name="tituloProducto">
+                            Chilaquiles verdes
+                        </x-slot>
+                        <x-slot name="precioProducto">
+                            $185
+                        </x-slot>
+                        <x-slot name="descripcionProducto">
+                        Totopos bañados en una salsa verde clásica, mezcal de quesos, cebolla morara, crema y con la proteína de tu elección, huevo o pollo a la plancha.
+                        </x-slot>
+                    </x-producto>
+                    <x-producto-sf name="producto">
+                        <x-slot name="tituloProducto">
+                            Pasta Vous Amour
+                        </x-slot>
+                        <x-slot name="precioProducto">
+                            $187
+                        </x-slot>
+                        <x-slot name="descripcionProducto">
+                        Pasta penne, bañada con una salsa Alfredo de betabel con camarrones salteados con un toque ahumado.
+                        </x-slot>
+                    </x-producto>
+                    <x-producto-sf name="producto">
+                        <x-slot name="tituloProducto">
+                            Pasta creme xcatik
+                        </x-slot>
+                        <x-slot name="precioProducto">
+                            $187
+                        </x-slot>
+                        <x-slot name="descripcionProducto">
+                        Deliciosa crema de chiles, acompañada de hongos salteados, pollo a la plancha y brotes.
+                        </x-slot>
+                    </x-producto>
 
-        <x-producto-sf name="producto">
-            <x-slot name="tituloProducto">
-                Hamburger au bacon
-            </x-slot>
-            <x-slot name="precioProducto">
-                $190
-            </x-slot>
-            <x-slot name="descripcionProducto">
-              Jugosa carne de res montada sobre un pan brioche, mayonesa, mezcla de lechugas, tomate y por supuesto tocino crujiente y cremoso queso de cabra.
-            </x-slot>
-        </x-producto>
-        <x-producto-sf name="producto">
-            <x-slot name="tituloProducto">
-                Hamburger vous amour
-            </x-slot>
-            <x-slot name="precioProducto">
-                $233
-            </x-slot>
-            <x-slot name="descripcionProducto">
-              Jugosa carne de la casa, acompañada de arrachera, tomate, lechuga, queso gruyere y cebolla frita.
-            </x-slot>
-        </x-producto>
-        <x-producto-sf name="producto">
-            <x-slot name="tituloProducto">
-                Croissant vous amour
-            </x-slot>
-            <x-slot name="precioProducto">
-                $233
-            </x-slot>
-            <x-slot name="descripcionProducto">
-              Un clásico croissant relleno de queso brie, mix de quesos, pechuga ahumada de pavo, lechuga, aderezado con una mermelada de frutos rojos y chipotle.
-            </x-slot>
-        </x-producto>
-        <x-producto-sf name="producto">
-            <x-slot name="tituloProducto">
-                Chilaquiles rojos
-            </x-slot>
-            <x-slot name="precioProducto">
-                $205
-            </x-slot>
-            <x-slot name="descripcionProducto">
-              Tortilla de maiz frita, bañada en nuestra salsa roja, acompañados de arrachera, huevo, queso, crema, brotes, cebolla morada.
-            </x-slot>
-        </x-producto>
-        <x-producto-sf name="producto">
-            <x-slot name="tituloProducto">
-                Chilaquiles verdes
-            </x-slot>
-            <x-slot name="precioProducto">
-                $185
-            </x-slot>
-            <x-slot name="descripcionProducto">
-              Totopos bañados en una salsa verde clásica, mezcal de quesos, cebolla morara, crema y con la proteína de tu elección, huevo o pollo a la plancha.
-            </x-slot>
-        </x-producto>
-        <x-producto-sf name="producto">
-            <x-slot name="tituloProducto">
-                Pasta Vous Amour
-            </x-slot>
-            <x-slot name="precioProducto">
-                $187
-            </x-slot>
-            <x-slot name="descripcionProducto">
-              Pasta penne, bañada con una salsa Alfredo de betabel con camarrones salteados con un toque ahumado.
-            </x-slot>
-        </x-producto>
-        <x-producto-sf name="producto">
-            <x-slot name="tituloProducto">
-                Pasta creme xcatik
-            </x-slot>
-            <x-slot name="precioProducto">
-                $187
-            </x-slot>
-            <x-slot name="descripcionProducto">
-              Deliciosa crema de chiles, acompañada de hongos salteados, pollo a la plancha y brotes.
-            </x-slot>
-        </x-producto>
+                    <span><b>Postres</b></span>
+                    <x-producto-sf name="producto">
+                        <x-slot name="tituloProducto">
+                            Tarte Fraisier
+                        </x-slot>
+                        <x-slot name="precioProducto">
+                            $152
+                        </x-slot>
+                        <x-slot name="descripcionProducto">
+                        Cremosa tarta rellena de un mousseline de vainilla, biscocho bañado en jarabe de te rooibos, terminado con fresas frescas y pistache.
+                        </x-slot>
+                    </x-producto>
+                    <x-producto-sf name="producto">
+                        <x-slot name="tituloProducto">
+                            Tarte fraisier
+                        </x-slot>
+                        <x-slot name="precioProducto">
+                            $135
+                        </x-slot>
+                        <x-slot name="descripcionProducto">
+                        Tarta de crema de limón Eureka, merengue flameado y rodajas de limón caramelizado.
+                        </x-slot>
+                    </x-producto>
+                    <x-producto-sf name="producto">
+                        <x-slot name="tituloProducto">
+                            Creme Brulee
+                        </x-slot>
+                        <x-slot name="precioProducto">
+                            $110
+                        </x-slot>
+                        <x-slot name="descripcionProducto">
+                        Natilla de vainilla, cubierta de una capa de caramelo.
+                        </x-slot>
+                    </x-producto>
 
-        <span><b>Postres</b></span>
-        <x-producto-sf name="producto">
-            <x-slot name="tituloProducto">
-                Tarte Fraisier
-            </x-slot>
-            <x-slot name="precioProducto">
-                $152
-            </x-slot>
-            <x-slot name="descripcionProducto">
-              Cremosa tarta rellena de un mousseline de vainilla, biscocho bañado en jarabe de te rooibos, terminado con fresas frescas y pistache.
-            </x-slot>
-        </x-producto>
-        <x-producto-sf name="producto">
-            <x-slot name="tituloProducto">
-                Tarte fraisier
-            </x-slot>
-            <x-slot name="precioProducto">
-                $135
-            </x-slot>
-            <x-slot name="descripcionProducto">
-              Tarta de crema de limón Eureka, merengue flameado y rodajas de limón caramelizado.
-            </x-slot>
-        </x-producto>
-        <x-producto-sf name="producto">
-            <x-slot name="tituloProducto">
-                Creme Brulee
-            </x-slot>
-            <x-slot name="precioProducto">
-                $110
-            </x-slot>
-            <x-slot name="descripcionProducto">
-              Natilla de vainilla, cubierta de una capa de caramelo.
-            </x-slot>
-        </x-producto>
-        <hr> {{-- separador --}}
-        <span><b>Panadería</b></span>
-        <x-producto-sf name="producto">
-            <x-slot name="tituloProducto">
-                Pan estilo francés de la casa
-            </x-slot>
-            <x-slot name="precioProducto">
-                $75
-            </x-slot>
-        </x-producto>
+                </div>
+            </div>
 
-        <hr> {{-- separador --}}
-        <span><b>Bebidas</b></span>
-        <x-producto-sf name="producto">
-            <x-slot name="tituloProducto">
-                Café americano refill
-            </x-slot>
-            <x-slot name="precioProducto">
-                $59
-            </x-slot>
-        </x-producto>
-        <x-producto-sf name="producto">
-            <x-slot name="tituloProducto">
-                Café americano
-            </x-slot>
-            <x-slot name="precioProducto">
-                $49
-            </x-slot>
-        </x-producto>
-        <x-producto-sf name="producto">
-            <x-slot name="tituloProducto">
-                Café descafeinado
-            </x-slot>
-            <x-slot name="precioProducto">
-                $49
-            </x-slot>
-        </x-producto>
-        <x-producto-sf name="producto">
-            <x-slot name="tituloProducto">
-                Espresso
-            </x-slot>
-            <x-slot name="precioProducto">
-                $50
-            </x-slot>
-        </x-producto>
-        <x-producto-sf name="producto">
-            <x-slot name="tituloProducto">
-                Espresso doble
-            </x-slot>
-            <x-slot name="precioProducto">
-                $70
-            </x-slot>
-        </x-producto>
-        <x-producto-sf name="producto">
-            <x-slot name="tituloProducto">
-                Espresso cortado
-            </x-slot>
-            <x-slot name="precioProducto">
-                $60
-            </x-slot>
-        </x-producto>
-        <x-producto-sf name="producto">
-            <x-slot name="tituloProducto">
-                Latte
-            </x-slot>
-            <x-slot name="precioProducto">
-                $60
-            </x-slot>
-        </x-producto>
-        <x-producto-sf name="producto">
-            <x-slot name="tituloProducto">
-                Iced Latte 
-            </x-slot>
-            <x-slot name="precioProducto">
-                $65
-            </x-slot>
-        </x-producto>
-        <x-producto-sf name="producto">
-            <x-slot name="tituloProducto">
-                Iced Pinked Latte 
-            </x-slot>
-            <x-slot name="precioProducto">
-                $70
-            </x-slot>
-        </x-producto>
-        <x-producto-sf name="producto">
-            <x-slot name="tituloProducto">
-                Chai latte
-            </x-slot>
-            <x-slot name="precioProducto">
-                $80
-            </x-slot>
-        </x-producto>
-        <x-producto-sf name="producto">
-            <x-slot name="tituloProducto">
-                Capuccino
-            </x-slot>
-            <x-slot name="precioProducto">
-                $65
-            </x-slot>
-        </x-producto>
-        <x-producto-sf name="producto">
-            <x-slot name="tituloProducto">
-                Saborizantes Extras
-            </x-slot>
-            <x-slot name="precioProducto">
-                $25
-            </x-slot>
-            <x-slot name="descripcionProducto">
-                Avellana / Vainilla francesa / Convierte tu bebida en fría + $10 / shot de leche $20
-            </x-slot>
-        </x-producto>
-        
-        <x-producto-sf name="producto">
-            <x-slot name="tituloProducto">
-                Frapuccino
-            </x-slot>
-            <x-slot name="precioProducto">
-                $75
-            </x-slot>
-        </x-producto>
-        <x-producto-sf name="producto">
-            <x-slot name="tituloProducto">
-                Matcha Latte
-            </x-slot>
-            <x-slot name="precioProducto">
-                $90
-            </x-slot>
-        </x-producto>
-        <x-producto-sf name="producto">
-            <x-slot name="tituloProducto">
-                Taro Latte
-            </x-slot>
-            <x-slot name="precioProducto">
-                $90
-            </x-slot>
-        </x-producto>
-        <x-producto-sf name="producto">
-            <x-slot name="tituloProducto">
-                Frappe Oreo
-            </x-slot>
-            <x-slot name="precioProducto">
-                $95
-            </x-slot>
-        </x-producto>
-        <x-producto-sf name="producto">
-            <x-slot name="tituloProducto">
-                Moka frappe
-            </x-slot>
-            <x-slot name="precioProducto">
-                $85
-            </x-slot>
-        </x-producto>
-        <x-producto-sf name="producto">
-            <x-slot name="tituloProducto">
-                Moka
-            </x-slot>
-            <x-slot name="precioProducto">
-                $80
-            </x-slot>
-        </x-producto>
-        <x-producto-sf name="producto">
-            <x-slot name="tituloProducto">
-                Chocolate
-            </x-slot>
-            <x-slot name="precioProducto">
-                $75
-            </x-slot>
-        </x-producto>
-        <x-producto-sf name="producto">
-            <x-slot name="tituloProducto">
-                Prensa francesa
-            </x-slot>
-            <x-slot name="precioProducto">
-                $90
-            </x-slot>
-        </x-producto>
-        <x-producto-sf name="producto">
-            <x-slot name="tituloProducto">
-                Cold Brew
-            </x-slot>
-            <x-slot name="precioProducto">
-                $90
-            </x-slot>
-        </x-producto>
-        <x-producto-sf name="producto">
-            <x-slot name="tituloProducto">
-                Coffe spritzer
-            </x-slot>
-            <x-slot name="precioProducto">
-                $95
-            </x-slot>
-        </x-producto>
-        <x-producto-sf name="producto">
-            <x-slot name="tituloProducto">
-                Jugo Naranja
-            </x-slot>
-            <x-slot name="precioProducto">
-                $50
-            </x-slot>
-        </x-producto>
-        <x-producto-sf name="producto">
-            <x-slot name="tituloProducto">
-                Jugo Verde
-            </x-slot>
-            <x-slot name="precioProducto">
-                $60
-            </x-slot>
-        </x-producto>
-        <x-producto-sf name="producto">
-            <x-slot name="tituloProducto">
-                Limonada fresa y Chia
-            </x-slot>
-            <x-slot name="precioProducto">
-                $75
-            </x-slot>
-        </x-producto>
-        <x-producto-sf name="producto">
-            <x-slot name="tituloProducto">
-                Limonada
-            </x-slot>
-            <x-slot name="precioProducto">
-                $55
-            </x-slot>
-        </x-producto>
-        <x-producto-sf name="producto">
-            <x-slot name="tituloProducto">
-                Té Sencha
-            </x-slot>
-            <x-slot name="precioProducto">
-                $55
-            </x-slot>
-        </x-producto>
-        <x-producto-sf name="producto">
-            <x-slot name="tituloProducto">
-                Tissana Fresa y Kiwi
-            </x-slot>
-            <x-slot name="precioProducto">
-                $55
-            </x-slot>
-        </x-producto>
-        <x-producto-sf name="producto">
-            <x-slot name="tituloProducto">
-                Tissana Jenjibre y Mandarina
-            </x-slot>
-            <x-slot name="precioProducto">
-                $55
-            </x-slot>
-        </x-producto>
-        <x-producto-sf name="producto">
-            <x-slot name="tituloProducto">
-                Coca cola
-            </x-slot>
-            <x-slot name="precioProducto">
-                $35
-            </x-slot>
-        </x-producto>
-        <x-producto-sf name="producto">
-            <x-slot name="tituloProducto">
-                Coca cola Light
-            </x-slot>
-            <x-slot name="precioProducto">
-                $35
-            </x-slot>
-        </x-producto>
-        <x-producto-sf name="producto">
-            <x-slot name="tituloProducto">
-                Coca cola sin azúcar
-            </x-slot>
-            <x-slot name="precioProducto">
-                $35
-            </x-slot>
-        </x-producto>
-        <x-producto-sf name="producto">
-            <x-slot name="tituloProducto">
-                Mundet
-            </x-slot>
-            <x-slot name="precioProducto">
-                $35
-            </x-slot>
-        </x-producto>
-        <x-producto-sf name="producto">
-            <x-slot name="tituloProducto">
-                Sprite
-            </x-slot>
-            <x-slot name="precioProducto">
-                $35
-            </x-slot>
-        </x-producto>
-        <x-producto-sf name="producto">
-            <x-slot name="tituloProducto">
-                Agua mineral
-            </x-slot>
-            <x-slot name="precioProducto">
-                $45
-            </x-slot>
-        </x-producto>
-        <x-producto-sf name="producto">
-            <x-slot name="tituloProducto">
-                Agua embotellada
-            </x-slot>
-            <x-slot name="precioProducto">
-                $35
-            </x-slot>
-        </x-producto>
+            <div class="mb-3">
+                <span class="categoria" data-toggle="collapse" href="#collapseExample8" role="button" aria-expanded="false" aria-controls="collapseExample">
+                        Panadería
+                </span>
+            </div>
+            <div class="collapse mb-3" id="collapseExample8">
+                <div class="card card-body">
+                    <x-producto-sf name="producto">
+                        <x-slot name="tituloProducto">
+                            Pan estilo francés de la casa
+                        </x-slot>
+                        <x-slot name="precioProducto">
+                            $75
+                        </x-slot>
+                    </x-producto>
+                </div>
+            </div>
+            <div class="mb-3">
+                <span class="categoria" data-toggle="collapse" href="#collapseExample10" role="button" aria-expanded="false" aria-controls="collapseExample">
+                       <span>Bebidas</span>
+                       <span><img src="{{asset('img/flecha.svg')}}" width="10" alt="">
+                        </span> 
+                       
+                </span>
+            </div>
+            <div class="collapse mb-3" id="collapseExample10">
+                <div class="card card-body">
+                    <x-producto-sf name="producto">
+                        <x-slot name="tituloProducto">
+                            Café americano refill
+                        </x-slot>
+                        <x-slot name="precioProducto">
+                            $59
+                        </x-slot>
+                    </x-producto>
+                    <x-producto-sf name="producto">
+                        <x-slot name="tituloProducto">
+                            Café americano
+                        </x-slot>
+                        <x-slot name="precioProducto">
+                            $49
+                        </x-slot>
+                    </x-producto>
+                    <x-producto-sf name="producto">
+                        <x-slot name="tituloProducto">
+                            Café descafeinado
+                        </x-slot>
+                        <x-slot name="precioProducto">
+                            $49
+                        </x-slot>
+                    </x-producto>
+                    <x-producto-sf name="producto">
+                        <x-slot name="tituloProducto">
+                            Espresso
+                        </x-slot>
+                        <x-slot name="precioProducto">
+                            $50
+                        </x-slot>
+                    </x-producto>
+                    <x-producto-sf name="producto">
+                        <x-slot name="tituloProducto">
+                            Espresso doble
+                        </x-slot>
+                        <x-slot name="precioProducto">
+                            $70
+                        </x-slot>
+                    </x-producto>
+                    <x-producto-sf name="producto">
+                        <x-slot name="tituloProducto">
+                            Espresso cortado
+                        </x-slot>
+                        <x-slot name="precioProducto">
+                            $60
+                        </x-slot>
+                    </x-producto>
+                    <x-producto-sf name="producto">
+                        <x-slot name="tituloProducto">
+                            Latte
+                        </x-slot>
+                        <x-slot name="precioProducto">
+                            $60
+                        </x-slot>
+                    </x-producto>
+                    <x-producto-sf name="producto">
+                        <x-slot name="tituloProducto">
+                            Iced Latte 
+                        </x-slot>
+                        <x-slot name="precioProducto">
+                            $65
+                        </x-slot>
+                    </x-producto>
+                    <x-producto-sf name="producto">
+                        <x-slot name="tituloProducto">
+                            Iced Pinked Latte 
+                        </x-slot>
+                        <x-slot name="precioProducto">
+                            $70
+                        </x-slot>
+                    </x-producto>
+                    <x-producto-sf name="producto">
+                        <x-slot name="tituloProducto">
+                            Chai latte
+                        </x-slot>
+                        <x-slot name="precioProducto">
+                            $80
+                        </x-slot>
+                    </x-producto>
+                    <x-producto-sf name="producto">
+                        <x-slot name="tituloProducto">
+                            Capuccino
+                        </x-slot>
+                        <x-slot name="precioProducto">
+                            $65
+                        </x-slot>
+                    </x-producto>
+                    <x-producto-sf name="producto">
+                        <x-slot name="tituloProducto">
+                            Saborizantes Extras
+                        </x-slot>
+                        <x-slot name="precioProducto">
+                            $25
+                        </x-slot>
+                        <x-slot name="descripcionProducto">
+                            Avellana / Vainilla francesa / Convierte tu bebida en fría + $10 / shot de leche $20
+                        </x-slot>
+                    </x-producto>
 
-        <hr> {{-- separador --}}
-        <span><b>Malteadas</b></span>
-        <x-producto-sf name="producto">
+                    <x-producto-sf name="producto">
+                        <x-slot name="tituloProducto">
+                            Frapuccino
+                        </x-slot>
+                        <x-slot name="precioProducto">
+                            $75
+                        </x-slot>
+                    </x-producto>
+                    <x-producto-sf name="producto">
+                        <x-slot name="tituloProducto">
+                            Matcha Latte
+                        </x-slot>
+                        <x-slot name="precioProducto">
+                            $90
+                        </x-slot>
+                    </x-producto>
+                    <x-producto-sf name="producto">
+                        <x-slot name="tituloProducto">
+                            Taro Latte
+                        </x-slot>
+                        <x-slot name="precioProducto">
+                            $90
+                        </x-slot>
+                    </x-producto>
+                    <x-producto-sf name="producto">
+                        <x-slot name="tituloProducto">
+                            Frappe Oreo
+                        </x-slot>
+                        <x-slot name="precioProducto">
+                            $95
+                        </x-slot>
+                    </x-producto>
+                    <x-producto-sf name="producto">
+                        <x-slot name="tituloProducto">
+                            Moka frappe
+                        </x-slot>
+                        <x-slot name="precioProducto">
+                            $85
+                        </x-slot>
+                    </x-producto>
+                    <x-producto-sf name="producto">
+                        <x-slot name="tituloProducto">
+                            Moka
+                        </x-slot>
+                        <x-slot name="precioProducto">
+                            $80
+                        </x-slot>
+                    </x-producto>
+                    <x-producto-sf name="producto">
+                        <x-slot name="tituloProducto">
+                            Chocolate
+                        </x-slot>
+                        <x-slot name="precioProducto">
+                            $75
+                        </x-slot>
+                    </x-producto>
+                    <x-producto-sf name="producto">
+                        <x-slot name="tituloProducto">
+                            Prensa francesa
+                        </x-slot>
+                        <x-slot name="precioProducto">
+                            $90
+                        </x-slot>
+                    </x-producto>
+                    <x-producto-sf name="producto">
+                        <x-slot name="tituloProducto">
+                            Cold Brew
+                        </x-slot>
+                        <x-slot name="precioProducto">
+                            $90
+                        </x-slot>
+                    </x-producto>
+                    <x-producto-sf name="producto">
+                        <x-slot name="tituloProducto">
+                            Coffe spritzer
+                        </x-slot>
+                        <x-slot name="precioProducto">
+                            $95
+                        </x-slot>
+                    </x-producto>
+                    <x-producto-sf name="producto">
+                        <x-slot name="tituloProducto">
+                            Jugo Naranja
+                        </x-slot>
+                        <x-slot name="precioProducto">
+                            $50
+                        </x-slot>
+                    </x-producto>
+                    <x-producto-sf name="producto">
+                        <x-slot name="tituloProducto">
+                            Jugo Verde
+                        </x-slot>
+                        <x-slot name="precioProducto">
+                            $60
+                        </x-slot>
+                    </x-producto>
+                    <x-producto-sf name="producto">
+                        <x-slot name="tituloProducto">
+                            Limonada fresa y Chia
+                        </x-slot>
+                        <x-slot name="precioProducto">
+                            $75
+                        </x-slot>
+                    </x-producto>
+                    <x-producto-sf name="producto">
+                        <x-slot name="tituloProducto">
+                            Limonada
+                        </x-slot>
+                        <x-slot name="precioProducto">
+                            $55
+                        </x-slot>
+                    </x-producto>
+                    <x-producto-sf name="producto">
+                        <x-slot name="tituloProducto">
+                            Té Sencha
+                        </x-slot>
+                        <x-slot name="precioProducto">
+                            $55
+                        </x-slot>
+                    </x-producto>
+                    <x-producto-sf name="producto">
+                        <x-slot name="tituloProducto">
+                            Tissana Fresa y Kiwi
+                        </x-slot>
+                        <x-slot name="precioProducto">
+                            $55
+                        </x-slot>
+                    </x-producto>
+                    <x-producto-sf name="producto">
+                        <x-slot name="tituloProducto">
+                            Tissana Jenjibre y Mandarina
+                        </x-slot>
+                        <x-slot name="precioProducto">
+                            $55
+                        </x-slot>
+                    </x-producto>
+                    <x-producto-sf name="producto">
+                        <x-slot name="tituloProducto">
+                            Coca cola
+                        </x-slot>
+                        <x-slot name="precioProducto">
+                            $35
+                        </x-slot>
+                    </x-producto>
+                    <x-producto-sf name="producto">
+                        <x-slot name="tituloProducto">
+                            Coca cola Light
+                        </x-slot>
+                        <x-slot name="precioProducto">
+                            $35
+                        </x-slot>
+                    </x-producto>
+                    <x-producto-sf name="producto">
+                        <x-slot name="tituloProducto">
+                            Coca cola sin azúcar
+                        </x-slot>
+                        <x-slot name="precioProducto">
+                            $35
+                        </x-slot>
+                    </x-producto>
+                    <x-producto-sf name="producto">
+                        <x-slot name="tituloProducto">
+                            Mundet
+                        </x-slot>
+                        <x-slot name="precioProducto">
+                            $35
+                        </x-slot>
+                    </x-producto>
+                    <x-producto-sf name="producto">
+                        <x-slot name="tituloProducto">
+                            Sprite
+                        </x-slot>
+                        <x-slot name="precioProducto">
+                            $35
+                        </x-slot>
+                    </x-producto>
+                    <x-producto-sf name="producto">
+                        <x-slot name="tituloProducto">
+                            Agua mineral
+                        </x-slot>
+                        <x-slot name="precioProducto">
+                            $45
+                        </x-slot>
+                    </x-producto>
+                    <x-producto-sf name="producto">
+                        <x-slot name="tituloProducto">
+                            Agua embotellada
+                        </x-slot>
+                        <x-slot name="precioProducto">
+                            $35
+                        </x-slot>
+                    </x-producto>
+                </div>
+            </div>
+        <div class="mb-3">
+                <span class="categoria" data-toggle="collapse" href="#collapseExample9" role="button" aria-expanded="false" aria-controls="collapseExample">
+                        Malteadas
+                        <span><img src="{{asset('img/flecha.svg')}}" width="10" alt="">
+                        </span> 
+                </span>
+            </div>
+            <div class="collapse mb-3" id="collapseExample9">
+                <div class="card card-body">
+                     <x-producto-sf name="producto">
             <x-slot name="tituloProducto">
                 Malteada de fresa
             </x-slot>
@@ -774,9 +831,16 @@
                 $80
             </x-slot>
         </x-producto>
-
-        <hr> {{-- separador --}}
-        
+                </div>
         </div>
+        </div>
+
+        @push('js')
+            <script>
+                $(document).ready(function() {
+                $('#promoModal').modal('show');
+                 });
+            </script>
+        @endpush
         
 </x-layouts.guest>

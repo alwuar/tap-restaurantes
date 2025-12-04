@@ -24,4 +24,5 @@
     @stack('js')
 </body>
 
+    <x-footer/>
 </html>

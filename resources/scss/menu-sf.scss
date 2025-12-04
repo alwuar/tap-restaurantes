@@ -2,23 +2,21 @@
 @use 'promo';
 @use 'navfilter';
 @use 'producto-sf';
+@use 'footer';
 
 
-.promociones {
-    display: flex;
-    overflow-x: auto;
-    overflow-y: hidden;
-    gap: 20px;              /* espacio entre elementos */
-    scroll-behavior: smooth; 
-    padding: 0;             /* nada de padding */
-    box-sizing: border-box;
-}
-.promociones::-webkit-scrollbar {
-    display: none;
-}
-.promociones::before {
-    content: "";
-    flex: 0 0 0px;       /* espacio inicial de 20px */
+.contenedor-promos {
+    .btn-promo {
+        text-decoration: none;
+        background-color: #4C4185;
+        padding: .5em 1em;
+
+        border-radius: .3em;
+
+        color: #fff;
+        font-weight: 600;
+
+    }
 }
 .contenedor-productos {
     padding: 2em 0;
@@ -26,4 +24,21 @@
         font-size: 17.33px;
         font-weight: 600;
     }
+}
+
+
+.navbar-nav .dropdown-menu {
+    display: none;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    position: absolute; /* Para que flote sobre otros elementos */
+    left: 50%;
+    transform: translateX(-50%) translateY(-10px);
+}
+
+.navbar-nav .dropdown-menu.show {
+    display: block;
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
 }

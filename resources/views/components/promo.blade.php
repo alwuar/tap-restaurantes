@@ -1,5 +1,5 @@
-<div class="contenedor-promos">
-    <button class="btn-promo">
+<div class="contenedor-promos text-center">
+    <a class="btn-promo">
         {{$btnPromo ?? ''}}
-    </button>
+    </a>
 </div>
