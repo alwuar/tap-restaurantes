@@ -5,7 +5,7 @@
         @push('modal')
             <x-modal name="promoModal">
                 <x-slot name="promoModal">
-                    <img src="{{asset('img/clientes/vous-amour/vous-promo.webp')}}" class="img-fluid" alt="">
+                    <img src="{{asset('img/clientes/vous-amour/vous-promo-2.webp')}}" class="img-fluid" alt="">
                 </x-slot>
             </x-modal>
         @endpush
@@ -31,7 +31,7 @@
        <div class="promociones container-fluid">
         <x-promo name="bntPromo">
             <x-slot name="btnPromo">
-                <small>Miércoles 2 x 1 en chilaquiles</small>
+                <small>10% OFF en el total de tu cuenta</small>
             </x-slot>
         </x-promo>
        </div>

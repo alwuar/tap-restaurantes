@@ -1,5 +1,7 @@
 <div class="contenedor-promos text-center">
-    <a class="btn-promo">
-        {{$btnPromo ?? ''}}
-    </a>
+   
+
+    <button class="btn-promo" type="button" class="btn btn-primary" data-toggle="modal" data-target="#promoModal">
+       {{ $btnPromo ?? '' }}
+    </button>
 </div>
