@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\VisitController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,11 +16,26 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('index');
+    return view('welcome');
 });
-Route::get('/swing-pasta', function () {
-    return view('clientes.swing-pasta.menu');
+
+Route::post('/visits', [VisitController::class, 'store']);
+Route::middleware('auth')->group(function () {
+    Route::get('/dashboard-visits/{restaurant_id}', [VisitController::class, 'dashboard']);
 });
+
 Route::get('/vous-amour', function () {
-    return view('clientes.vous-amour.menu');
+    return view('clientes.vous-amour.menu'); // tu vista original
 });
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+require __DIR__.'/auth.php';

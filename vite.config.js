@@ -5,21 +5,10 @@ export default defineConfig({
     plugins: [
         laravel({
             input: [
+                'resources/css/app.css',
                 'resources/js/app.js',
-                'resources/scss/menu.scss',
-                'resources/scss/menu-sf.scss',
-                'resources/scss/modalpromo.scss',
-                'resources/scss/index.scss',
-                'resources/scss/app.scss'
             ],
             refresh: true,
-            // Fuerza la generación del manifest
-            buildDirectory: 'build'
-        })
+        }),
     ],
-    build: {
-        outDir: 'public/build',
-        manifest: true,
-        emptyOutDir: true,
-    },
 });

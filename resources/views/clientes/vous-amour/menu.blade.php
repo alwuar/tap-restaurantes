@@ -479,7 +479,7 @@
 
             <div class="mb-3">
                 <span class="categoria" data-toggle="collapse" href="#collapseExample8" role="button" aria-expanded="false" aria-controls="collapseExample">
-                        Panadería
+                        Panadería <span><img src="{{asset('img/flecha.svg')}}" width="10" alt="">
                 </span>
             </div>
             <div class="collapse mb-3" id="collapseExample8">
