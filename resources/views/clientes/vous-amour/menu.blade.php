@@ -3,11 +3,11 @@
 @endpush
 <x-layouts.guest-menu title="Vouse Amour - menú en linea">
         @push('modal')
-            <x-modal name="promoModal">
+            <x-modal-promos name="promoModal">
                 <x-slot name="promoModal">
                     <img src="{{asset('img/clientes/vous-amour/vous-promo-2.webp')}}" class="img-fluid" alt="">
                 </x-slot>
-            </x-modal>
+            </x-modal-promos>
         @endpush
     <header>
         <x-cabecera>
@@ -840,7 +840,34 @@
                 $(document).ready(function() {
                 $('#promoModal').modal('show');
                  });
+
+                             document.addEventListener('DOMContentLoaded', function() {
+                let deviceId = localStorage.getItem('device_id');
+                if(!deviceId){
+                    deviceId = crypto.randomUUID();
+                    localStorage.setItem('device_id', deviceId);
+                }
+
+                fetch('/visits', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                    },
+                    body: JSON.stringify({ 
+                        device_id: deviceId,
+                        restaurant_id: 1
+                    })
+                })
+                .then(res => res.json())
+                .then(data => console.log(data))
+                .catch(err => console.error(err));
+            });
             </script>
+            </script>
+
         @endpush
+        
+
         
 </x-layouts.guest>

@@ -16,7 +16,7 @@ use App\Http\Controllers\VisitController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
 
 Route::post('/visits', [VisitController::class, 'store']);
