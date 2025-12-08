@@ -1,7 +1,7 @@
 @push('css')
     @vite(['resources/scss/app.scss', 'resources/scss/menu-sf.scss','resources/js/app.js'])
 @endpush
-<x-layouts.guest-menu title="Vouse Amour - menú en linea">
+<x-layouts.guest-menu title="Vous Amour - menú en linea">
         @push('modal')
             <x-modal-promos name="promoModal">
                 <x-slot name="promoModal">
