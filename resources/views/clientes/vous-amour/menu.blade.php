@@ -41,6 +41,25 @@
     <section class="contenedor-productos">
         <div class="container">
 
+            <div class="mb-3">
+                <span class="categoria" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                        Recomendaciones de la semana 🏅 
+                        
+                        </span> 
+                </span>
+                <x-producto-sf name="producto">
+                        <x-slot name="tituloProducto">
+                            Bowl de frutos rojos
+                        </x-slot>
+                        <x-slot name="precioProducto">
+                            $133
+                        </x-slot>
+                        <x-slot name="descripcionProducto">
+                            Pudín de avena, chia y leche de coco terminado con una mezcla de frutos rojos frescos y coco tostado.
+                        </x-slot>
+                    </x-producto-sf>
+            </div>
+
             {{-- data target --}}
            <div class="mb-3">
                 <span class="categoria" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
@@ -834,36 +853,13 @@
                 </div>
         </div>
         </div>
-
+    </section>
         @push('js')
             <script>
                 $(document).ready(function() {
                 $('#promoModal').modal('show');
                  });
 
-                             document.addEventListener('DOMContentLoaded', function() {
-                let deviceId = localStorage.getItem('device_id');
-                if(!deviceId){
-                    deviceId = crypto.randomUUID();
-                    localStorage.setItem('device_id', deviceId);
-                }
-
-                fetch('/visits', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'X-CSRF-TOKEN': '{{ csrf_token() }}'
-                    },
-                    body: JSON.stringify({ 
-                        device_id: deviceId,
-                        restaurant_id: 1
-                    })
-                })
-                .then(res => res.json())
-                .then(data => console.log(data))
-                .catch(err => console.error(err));
-            });
-            </script>
             </script>
 
         @endpush

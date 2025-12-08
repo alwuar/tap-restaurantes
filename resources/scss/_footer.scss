@@ -1,11 +1,19 @@
 footer {
     margin-top: 2em;
-    background-color: rgb(21, 21, 21);
+    background-color: rgb(25, 25, 25);
 
-    min-height: 300px;
+    min-height: 140px;
 
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items:center;
+
+    button {
+        color: #fff;
+        background-color: transparent;
+        border: none;
+
+        
+    }
 }
