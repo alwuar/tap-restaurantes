@@ -41,7 +41,8 @@
     <section class="contenedor-productos">
         <div class="container">
 
-            <div class="mb-3">
+            <section class="recomendaciones">
+                <div class="mb-3">
                 <span class="categoria" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
                         Recomendaciones de la semana 🏅 
                         
@@ -59,6 +60,8 @@
                         </x-slot>
                     </x-producto-sf>
             </div>
+            <hr>
+            </section>
 
             {{-- data target --}}
            <div class="mb-3">
