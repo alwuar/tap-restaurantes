@@ -48,7 +48,8 @@
                         
                         </span> 
                 </span>
-                <x-producto-sf name="producto">
+                <div class="card-yomy">
+                    <x-producto-sf name="producto">
                         <x-slot name="tituloProducto">
                             Bowl de frutos rojos
                         </x-slot>
@@ -59,8 +60,8 @@
                             Pudín de avena, chia y leche de coco terminado con una mezcla de frutos rojos frescos y coco tostado.
                         </x-slot>
                     </x-producto-sf>
+                </div>
             </div>
-            <hr>
             </section>
 
             {{-- data target --}}
