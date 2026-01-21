@@ -5,7 +5,9 @@
         @push('modal')
             <x-modal-promos name="promoModal">
                 <x-slot name="promoModal">
-                    <img src="{{asset('img/clientes/vous-amour/vous-promo-2.webp')}}" class="img-fluid" alt="">
+                    <div class="text-center">
+                        <iframe src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1189538700047535%2F&show_text=true&width=267&t=0" width="auto" height="591" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+                    </div>
                 </x-slot>
             </x-modal-promos>
         @endpush
