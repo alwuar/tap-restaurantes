@@ -33,7 +33,7 @@
        <div class="promociones container-fluid">
         <x-promo name="bntPromo">
             <x-slot name="btnPromo">
-                <small>10% OFF en el total de tu cuenta</small>
+                <small>Los mejores brunch están con nosotros</small>
             </x-slot>
         </x-promo>
        </div>
